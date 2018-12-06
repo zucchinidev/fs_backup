@@ -1,4 +1,4 @@
-package filesystem_watcher
+package fs_backup
 
 import (
 	"archive/zip"
