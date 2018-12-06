@@ -9,12 +9,17 @@ import (
 
 // be responsible for archiving the source folder and storing it in the destination path.
 type Archiver interface {
+	DestFmt() string
 	Archive(src, dest string) error
 }
 
 type zipper struct{}
 
-func (a *zipper) Archive(src, dest string) error {
+func (z *zipper) DestFmt() string {
+	return "%d.zip"
+}
+
+func (z *zipper) Archive(src, dest string) error {
 	if err := os.MkdirAll(filepath.Dir(dest), 0777); err != nil {
 		return err
 	}
