@@ -70,6 +70,18 @@ func main() {
 		fatalErr = err
 		return
 	case add:
+		if len(args[1:]) == 0 {
+			fatalErr = errors.New("must specify path to add")
+			return
+		}
+		for _, p := range args[1:] {
+			path := &path{Path: p, Hash: "Not yet archived"}
+			if err := col.InsertJSON(path); err != nil {
+				fatalErr = err
+				return
+			}
+			fmt.Printf("+ %s\n", path)
+		}
 	case remove:
 
 	}
