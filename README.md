@@ -1,4 +1,7 @@
-# filesystem watcher
+# filesystem backup
+
+> A simple filesystem backup for our source code projects that archive specified folders 
+and save a snapshot of them every time we make a change. The change could be when we tweak a file and save it, when we add new files and folders, or even when we delete a file.
 
 A listing of some high-level acceptance criteria for our solution and the approach we want to take:
 
